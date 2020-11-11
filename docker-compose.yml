@@ -1,0 +1,21 @@
+version: '3.4'
+
+services: 
+  nginx-proxy:
+    image: nginx
+    volumes: 
+      - ./nginx/servers:/etc/nginx/conf.d/servers.conf
+    ports: 
+      - 80:80
+  app1:
+    image: nginx
+    volumes: 
+      - ./nginx/app1.html:/var/www/html/index.html
+    ports: 
+      - 80
+  app2:
+    image: nginx
+    volumes: 
+      - ./nginx/app2.html:/var/www/html/index.html
+    ports: 
+      - 80
